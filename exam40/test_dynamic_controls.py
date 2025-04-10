@@ -2,15 +2,23 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.options import Options  # Required import
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 class TestDynamicControls(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.driver = webdriver.Firefox(service=Service())
+        # Configure headless properly
+        options = Options()
+        options.add_argument("-headless")  # The working argument for Firefox
+        
+        cls.driver = webdriver.Firefox(
+            service=Service(),
+            options=options
+        )
         cls.driver.get("http://the-internet.herokuapp.com/dynamic_controls")
-        print("\n🔥 Browser launched - Starting test suite")
+        print("\n🔥 Firefox running in TRUE headless mode")
 
     def test_1_checkbox_flow(self):
         print("\n✅ Test 1 - Testing checkbox removal/addition...")
