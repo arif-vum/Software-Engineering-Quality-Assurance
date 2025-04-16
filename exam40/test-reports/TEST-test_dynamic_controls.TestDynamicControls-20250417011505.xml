@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test_dynamic_controls.TestDynamicControls-20250417011505" tests="2" file="test_dynamic_controls.py" time="14.153" timestamp="2025-04-17T01:15:23" failures="0" errors="0" skipped="0">
+	<testcase classname="test_dynamic_controls.TestDynamicControls" name="test_1_checkbox_flow" time="7.137" timestamp="2025-04-17T01:15:16" file="test_dynamic_controls.py" line="32">
+		<system-out><![CDATA[
+✅ Test 1 - Testing checkbox removal/addition...
+📸 Screenshot saved: checkbox_removed_20250417_011513.png
+📸 Screenshot saved: checkbox_restored_20250417_011516.png
+]]></system-out>
+	</testcase>
+	<testcase classname="test_dynamic_controls.TestDynamicControls" name="test_2_input_flow" time="7.016" timestamp="2025-04-17T01:15:23" file="test_dynamic_controls.py" line="51">
+		<system-out><![CDATA[
+✅ Test 2 - Testing input enable/disable...
+📸 Screenshot saved: input_enabled_20250417_011520.png
+📸 Screenshot saved: input_disabled_20250417_011523.png
+]]></system-out>
+	</testcase>
+</testsuite>
