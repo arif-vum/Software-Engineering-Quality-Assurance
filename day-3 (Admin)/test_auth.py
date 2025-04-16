@@ -1,9 +1,9 @@
 import unittest
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
-
 from selenium.webdriver.common.alert import Alert
 from selenium.common.exceptions import NoAlertPresentException
+import os
 
 # Website that needs login
 BASE_URL = "https://the-internet.herokuapp.com/basic_auth"
@@ -22,6 +22,7 @@ class BasicAuthTest(unittest.TestCase):
     def test_correct_credentials(self):
         """✅ test_correct_credentials"""
         self.driver.get(f"https://{CORRECT_CREDENTIALS}@the-internet.herokuapp.com/basic_auth")
+        self.driver.save_screenshot(f"{self._testMethodName}.jpg")
         self.assertIn("Congratulations!", self.driver.page_source)  # Check success message
     
     def test_missing_credentials(self):
@@ -36,6 +37,7 @@ class BasicAuthTest(unittest.TestCase):
             raise
 
         page_title = self.driver.title
+        self.driver.save_screenshot(f"{self._testMethodName}.jpg")
         
         print(f"Page Title: {page_title}")  # Optional: see the title of the page
         
@@ -49,7 +51,6 @@ class BasicAuthTest(unittest.TestCase):
         """❌ test_incorrect_credentials"""
         self.driver.get(f"https://{INCORRECT_CREDENTIALS}@the-internet.herokuapp.com/basic_auth")
 
-
         try:
             alert = Alert(self.driver)
             print("Alert found")
@@ -58,8 +59,9 @@ class BasicAuthTest(unittest.TestCase):
             print("No alert found")
             raise
 
-
         page_title = self.driver.title
+        self.driver.save_screenshot(f"{self._testMethodName}.jpg")
+        
         print(f"Page Title: {page_title}")  # Optional: see the title of the page
         
         # Check that the page title is not 'The Internet'
